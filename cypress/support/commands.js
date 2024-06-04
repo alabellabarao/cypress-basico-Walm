@@ -180,3 +180,21 @@ Cypress.Commands.add('incluirFoneBrancoCheckFoneCheckado', function() {
       cy.get('button[type="submit"]')
          .click()
 })
+
+Cypress.Commands.add('upload', function() {
+   cy.get('input[type="file"]#file-upload')
+          .should('not.have.value')
+          .selectFile('./cypress/fixtures/example.json')
+          .should(function($input) {
+            expect($input[0].files[0].name).to.equal('example.json')
+          })
+})   
+
+Cypress.Commands.add('dragDrop', function() {
+   cy.get('input[type="file"]#file-upload')
+      .should('not.have.value')
+      .selectFile('./cypress/fixtures/example.json', { action: 'drag-drop' })
+      .should(function($input) { 
+         expect($input[0].files[0].name).to.equal('example.json')
+      })
+})
