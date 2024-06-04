@@ -75,7 +75,7 @@ describe('Central de Atendimento ao Cliente TAT', function() {
     })
 
     // Hard Coded -> nos referindo a valores ou comandos que são fixamente escritos no código-fonte do programa.
-    it.only('Informa todos os dados corretos', function (){
+    it('Informa todos os dados corretos', function (){
         const longText = 'O clima do Rio Grande do Sul é bastante diversificado devido à sua localização geográfica e topografia variada. Predomina o clima subtropical, com quatro estações bem definidas. Os verões são quentes e úmidos, enquanto os invernos são frios, com ocorrência de geadas e, ocasionalmente, neve nas áreas mais altas.'
         const nome = 'Pedro'
         const sobreNome = 'Barão'

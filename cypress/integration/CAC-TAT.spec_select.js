@@ -65,7 +65,7 @@ describe('Central de Atendimento ao Cliente TAT', function() {
         cy.get('.success').should('be.visible')
     })
 
-    it.only('Enviar o formulário com sucesso usando seletor Blog pelo índice - Código customizado', function () {
+    it('Enviar o formulário com sucesso usando seletor Blog pelo índice - Código customizado', function () {
         cy.incluirSeletorBlog()
         cy.get('.success').should('be.visible')
     })
