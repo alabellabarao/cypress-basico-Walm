@@ -1,6 +1,5 @@
 /// <reference types="Cypress" />
 
-
     // Hard coded e Cógigo Customizado
 describe('Central de Atendimento ao Cliente TAT', function() {
     beforeEach(function(){
@@ -43,8 +42,20 @@ describe('Central de Atendimento ao Cliente TAT', function() {
     })
 
     it('Selecionar um arquivo da pasta fixtures para qual foi dado um alias - Hard Coded', function (){
-        cy.fixture('example').as('sampleFile')
+        cy.fixture('example.json').as('sampleFile')
         cy.get('input[type="file"]')
-          .selectFile('@sampleFile')
+                //o alias pega todo o caminho ('./cypress/fixtures/example.json')
+            .selectFile('@sampleFile')
+            .should(function($input){
+                expect($input[0].files[0].name).to.equal('example.json')
+            })
+    })
+
+    it.only('Acessa a página de política de privacidade removendo target e então clicando no link- Hard Coded', function (){
+        cy.get('#privacy a')
+            // remover a target, aí a tela de privacidade abre na mesma tela
+            // <a href="privacy.html" target="_blank" data-cypress-el="true">Política de Privacidade</a>
+           .invoke('removeAttr', 'target')
+           .click()
     })
 })
